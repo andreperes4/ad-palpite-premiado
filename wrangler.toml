@@ -4,3 +4,7 @@ compatibility_date = "2026-10-24"
 
 # Depois de criar o D1, adicione aqui o binding via dashboard ou Wrangler.
 # O nome do binding DEVE ser: DB
+[[d1_databases]]
+binding = "DB"
+database_name = "ad-palpite-db"
+database_id = "f72c78bb-8111-4028-af14-7cacca9893d1"
