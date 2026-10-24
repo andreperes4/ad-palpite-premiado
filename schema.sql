@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS rounds (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT NOT NULL DEFAULT 'Palpite Premiado',
+  prize TEXT NOT NULL DEFAULT 'PIX',
+  closes_at TEXT,
+  locked INTEGER NOT NULL DEFAULT 0,
+  active INTEGER NOT NULL DEFAULT 1,
+  games_json TEXT NOT NULL DEFAULT '[]',
+  results_json TEXT NOT NULL DEFAULT '[]',
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS predictions (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  round_id INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  picks_json TEXT NOT NULL,
+  combination_key TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(round_id, phone),
+  UNIQUE(round_id, combination_key),
+  FOREIGN KEY(round_id) REFERENCES rounds(id) ON DELETE CASCADE
+);

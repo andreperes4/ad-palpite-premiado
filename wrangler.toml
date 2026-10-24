@@ -1,0 +1,6 @@
+name = "ad-palpite-premiado"
+pages_build_output_dir = "public"
+compatibility_date = "2026-10-24"
+
+# Depois de criar o D1, adicione aqui o binding via dashboard ou Wrangler.
+# O nome do binding DEVE ser: DB
